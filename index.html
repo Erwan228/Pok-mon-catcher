@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body{
+        background-color: greenyellow;
+        user-select: none;
+      }
+      img {
+        height: 250px;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="playBattleMusic()">Battle music</button>
+    <div id="wildPokemon"></div>
+    <br />
+    <div id="inventory"></div>
+  </body>
+  <script>
+    //Model
+    const battleMusic = new Audio('Battle! [Trainer Battle] - Pokémon X_Pokémon Y - Super Smash Bros. Ultimate.webm')
+    let pokemon = [
+      {name: "Bidoof", image: "bidoof.png", },
+      {name: "Charizard", image: "charizard.png", },
+      {name: "Eevee", image: "eevee.png", },
+      {name: "Lapras", image: "lapras.png", },
+      {name: "Lucario", image: "lucario.png", },
+      {name: "Mew", image: "mew.png", },
+      {name: "Piplup", image: "piplup.png", },
+      {name: "Riolu", image: "rioulu.png", },
+    ];
+    let chosenPokemon;
+    let screen = document.getElementById('wildPokemon');
+    let capturedPokemon = '';
+    const backgroundMusic = new Audio ('Lavender Town (Original Japanese Version from Pokemon Red and Green).webm')
+
+    //View
+    randomEncounter();
+    function randomEncounter(){
+      chosenPokemon = pokemon[Math.floor(Math.random()*8)];
+      screen.innerHTML = /*HTML*/`
+
+      <div id="image"><img src="${chosenPokemon.image}"></div>
+      <p>You encountered a wild ${chosenPokemon.name}!</p>
+      <p>What will you do?</p>
+      <button onclick="capture()">POKÉBALL</button>
+      <button onclick="flee()">RUN</button>
+      `
+    }
+
+    function die(){
+      document.body.style.backgroundColor="black";
+      document.body.style.color="red";
+      document.body.style.fontSize="larger";
+      screen.innerHTML = /*HTML*/ `
+      <img height="333px" src="./died.jpg" alt="" />
+    <p>Your <span style="color: black">action</span> failed. The <span style="color:black">wild pokémon</span> ????? you.</p>
+      `
+    }
+    function deathScree(){
+      document.body.style.backgroundColor="black";
+      document.body.style.color="red";
+      document.body.style.fontSize="larger";
+      screen.innerHTML = /*HTML*/ `
+      <img height="333px" src="./ded.jpg" alt="" />
+    <p>Your action failed. The wild pokémon killed you.</p>
+      `
+    }
+
+
+
+    function finalEncounter(){
+      playMusic();
+      document.body.style.backgroundColor= "purple"
+      screen.innerHTML = /*HTML*/ `
+      <img src="darkEntity.png">
+      <p>A dark force intrigues you. It seems <span style="color: red">DEADLY!</span></p><br><p>RUN AWAY</p>
+      <button onclick="die()">COME CLOSER</button>
+      `
+    }
+
+    invnetoryButton();
+    function invnetoryButton(){
+      document.getElementById('inventory').innerHTML= /*HTML*/`
+      <button onclick="show()">Open your bag of kidnapped Pokémon</button>
+      `
+    }
+    function show(){
+      document.getElementById('inventory').innerHTML= /*HTML*/`
+      <button onclick="invnetoryButton()">Close your bag of kidnapped Pokémon</button>
+      <div>${capturedPokemon}</div>
+      `
+    }
+
+    //Controller
+    function playMusic(){
+       backgroundMusic.play();
+    }
+
+    function playBattleMusic(){
+      battleMusic.play();
+    }
+
+    function capture(){
+      let randomNumer1 = Math.floor(Math.random()*50);
+      let randomNumer2 = Math.floor(Math.random()*100);
+      if(randomNumer1 == 49){deathScree();
+      return}
+      else{capturedPokemon += document.getElementById('image').innerHTML;};
+      if(randomNumer2 == 66){finalEncounter()}
+      else {randomEncounter()};
+    }
+
+    function flee(){
+      let randomNumer1 = Math.floor(Math.random()*100);
+      let randomNumer2 = Math.floor(Math.random()*100);
+      if(randomNumer1 == 50){deathScree()}
+      if(randomNumer2 == 66){finalEncounter()}
+      else {randomEncounter()}
+    }
+  </script>
+</html>
