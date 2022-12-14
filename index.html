@@ -23,21 +23,21 @@
   </body>
   <script>
     //Model
-    const battleMusic = new Audio('Battle! [Trainer Battle] - Pokémon X_Pokémon Y - Super Smash Bros. Ultimate.webm')
+    const battleMusic = new Audio('https://erwan228.github.io/Pok-mon-catcher/Battle! [Trainer Battle] - Pokémon X_Pokémon Y - Super Smash Bros. Ultimate.webm')
     let pokemon = [
-      {name: "Bidoof", image: "bidoof.png", },
-      {name: "Charizard", image: "charizard.png", },
-      {name: "Eevee", image: "eevee.png", },
-      {name: "Lapras", image: "lapras.png", },
-      {name: "Lucario", image: "lucario.png", },
-      {name: "Mew", image: "mew.png", },
-      {name: "Piplup", image: "piplup.png", },
-      {name: "Riolu", image: "rioulu.png", },
+      {name: "Bidoof", image: "https://erwan228.github.io/Pok-mon-catcher/bidoof.png", },
+      {name: "Charizard", image: "https://erwan228.github.io/Pok-mon-catcher/charizard.png", },
+      {name: "Eevee", image: "https://erwan228.github.io/Pok-mon-catcher/eevee.png", },
+      {name: "Lapras", image: "https://erwan228.github.io/Pok-mon-catcher/lapras.png", },
+      {name: "Lucario", image: "https://erwan228.github.io/Pok-mon-catcher/lucario.png", },
+      {name: "Mew", image: "https://erwan228.github.io/Pok-mon-catcher/mew.png", },
+      {name: "Piplup", image: "https://erwan228.github.io/Pok-mon-catcher/piplup.png", },
+      {name: "Riolu", image: "https://erwan228.github.io/Pok-mon-catcher/rioulu.png", },
     ];
     let chosenPokemon;
     let screen = document.getElementById('wildPokemon');
     let capturedPokemon = '';
-    const backgroundMusic = new Audio ('Lavender Town (Original Japanese Version from Pokemon Red and Green).webm')
+    const backgroundMusic = new Audio ('https://erwan228.github.io/Pok-mon-catcher/Lavender Town (Original Japanese Version from Pokemon Red and Green).webm')
 
     //View
     randomEncounter();
@@ -58,7 +58,7 @@
       document.body.style.color="red";
       document.body.style.fontSize="larger";
       screen.innerHTML = /*HTML*/ `
-      <img height="333px" src="./died.jpg" alt="" />
+      <img height="333px" src="https://erwan228.github.io/Pok-mon-catcher/died.jpg" alt="" />
     <p>Your <span style="color: black">action</span> failed. The <span style="color:black">wild pokémon</span> ????? you.</p>
       `
     }
@@ -67,7 +67,7 @@
       document.body.style.color="red";
       document.body.style.fontSize="larger";
       screen.innerHTML = /*HTML*/ `
-      <img height="333px" src="./ded.jpg" alt="" />
+      <img height="333px" src="https://erwan228.github.io/Pok-mon-catcher/ded.jpg" alt="" />
     <p>Your action failed. The wild pokémon killed you.</p>
       `
     }
@@ -78,7 +78,7 @@
       playMusic();
       document.body.style.backgroundColor= "purple"
       screen.innerHTML = /*HTML*/ `
-      <img src="darkEntity.png">
+      <img src="https://erwan228.github.io/Pok-mon-catcher/darkEntity.png">
       <p>A dark force intrigues you. It seems <span style="color: red">DEADLY!</span></p><br><p>RUN AWAY</p>
       <button onclick="die()">COME CLOSER</button>
       `
